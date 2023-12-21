@@ -4,7 +4,7 @@
 :root {
   scroll-behavior: smooth;
 }
-*{
+* {
   padding: 0;
   margin: 0;
 }
@@ -16,11 +16,11 @@ body {
 
 a {
   text-decoration: none;
-/*  color: #d9232d;*/
+  /*  color: #d9232d;*/
 }
 
 a:hover {
-/*  color: #e24d55;*/
+  /*  color: #e24d55;*/
   text-decoration: none;
 }
 
@@ -36,15 +36,15 @@ h6 {
 /*------------------------------
   # General Section
 --------------------------------*/
-section{
+section {
   padding: 60px 0;
   overflow: hidden;
 }
-.section-header{
+.section-header {
   text-align: center;
   padding-bottom: 40px;
 }
-.section-header h2{
+.section-header h2 {
   font-size: 13px;
   letter-spacing: 1px;
   font-weight: 700;
@@ -52,7 +52,7 @@ section{
   color: #4154f1;
   text-transform: uppercase;
 }
-.section-header p{
+.section-header p {
   margin: 10px 0 0 0;
   padding: 0;
   font-size: 38px;
@@ -60,26 +60,25 @@ section{
   font-weight: 700;
   color: #012970;
 }
-@media(max-width: 768px){
+@media (max-width: 768px) {
   .section-header p {
     font-size: 28px;
     line-height: 32px;
   }
 }
 
-
 /*
   # Header
 */
 
-#header{
+#header {
   background-color: #fff;
   padding: 12px 0;
   transition: all 0.5s;
-  z-index: 997;
+  z-index: 9999;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.12);
 }
-#header .logo{
+#header .logo {
   font-size: 28px;
   margin: 0;
   padding: 0;
@@ -95,21 +94,21 @@ section{
   # Navigation menu
 */
 
-.navbar{
+.navbar-list {
   padding: 0;
 }
-.navbar ul{
+.navbar-list ul {
   margin: 0;
   padding: 0;
   display: flex;
   list-style: none;
   align-items: center;
 }
-.navbar li{
+.navbar-list li {
   position: relative;
 }
-.navbar a,
-.navbar a:focus{
+.navbar-list a,
+.navbar-list a:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -121,11 +120,11 @@ section{
   white-space: nowrap;
   transition: 0.3s;
 }
-.navbar a:hover{
+.navbar-list a:hover {
   color: #4154f1;
 }
-.navbar .daftar,
-.navbar .daftar:focus{
+.navbar-list .daftar,
+.navbar-list .daftar:focus {
   background: #4154f1;
   padding: 8px 25px;
   margin-left: 30px;
@@ -133,19 +132,87 @@ section{
   font-weight: 400;
   color: #fff;
 }
-.navbar .daftar:hover{
+.navbar-list .daftar:hover {
   background: transparent;
   border: 1px solid #4154f1;
   color: #444444;
   transition: 0.1s;
 }
+.toggle {
+  cursor: pointer;
+  overflow: hidden;
+  display: none;
+  transition: transform 0.3s ease;
+}
+.toggle .bi {
+  font-size: 28px;
+  color: #4154f1;
+}
 
+@media (max-width: 768px) {
+  #header .logo {
+    font-size: 24px;
+    padding: 15px 0;
+  }
+  .toggle {
+    display: block;
+  }
+
+  .navbar-list {
+    position: absolute;
+    height: 100vh;
+    width: 70%;
+    left: -70%;
+    top: 0;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s;
+  }
+  .navbar-list.active {
+    left: 0;
+    transition: left 0.3s;
+  }
+  .navbar-list .logo-list {
+    font-size: 22px;
+    margin-left: 30px;
+    padding: 24px 0;
+    color: #013289;
+    font-family: "Bebas Neue";
+    font-weight: 700;
+  }
+  .navbar-list ul {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 15px 0;
+    gap: 20px;
+  }
+
+  .navbar-list ul li a::before {
+    content: "";
+    background-color: #4154f1;
+    height: 5px;
+    width: 100px;
+    position: absolute;
+    bottom: 0;
+    left: -100px;
+    transition: left 0.3s;
+  }
+  .navbar-list ul li a:hover::before {
+    left: 30px;
+    transition: left 0.3s;
+  }
+
+  .navbar-list .daftar {
+    margin-top: 16rem;
+  }
+}
 
 /*
   # Hero
 */
 
-#hero{
+#hero {
   width: 100%;
   height: 90vh;
   background-color: rgba(63, 73, 83, 0.8);
@@ -155,23 +222,23 @@ section{
 #hero .carousel,
 #hero .carousel-inner,
 #hero .carousel-item,
-#hero .carousel-item::before{
+#hero .carousel-item::before {
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
 }
-#hero .carousel-item{
+#hero .carousel-item {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-#hero .carousel-item::before{
+#hero .carousel-item::before {
   content: "";
   background-color: rgba(30, 35, 40, 0.6);
 }
-#hero .carousel-container{
+#hero .carousel-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,20 +248,20 @@ section{
   left: 50px;
   right: 50px;
 }
-#hero .container{
+#hero .container {
   text-align: center;
 }
 #hero .carousel-inner .carousel-item {
   transition-property: opacity;
   background-position: center top;
 }
-#hero h2{
+#hero h2 {
   color: #fff;
   margin-bottom: 20px;
   font-size: 48px;
   font-weight: 700;
 }
-#hero p{
+#hero p {
   animation-delay: 0.4s;
   margin: 0 auto 30px auto;
   color: #fff;
@@ -262,7 +329,6 @@ section{
   background: #4154f1;
 }
 @media (max-width: 992px) {
-
   #hero .carousel-container {
     top: 8px;
   }
@@ -275,7 +341,6 @@ section{
 }
 
 @media (min-width: 1024px) {
-
   #hero .carousel-control-prev,
   #hero .carousel-control-next {
     width: 5%;
@@ -291,7 +356,7 @@ section{
 /*------------------------------------
   # About section
 --------------------------------------*/
-.features .feature-tabs h3{
+.features .feature-tabs h3 {
   color: #012970;
   font-weight: 700;
   font-size: 32px;
@@ -302,10 +367,10 @@ section{
     font-size: 28px;
   }
 }
-.features .feature-tabs .nav-pills{
+.features .feature-tabs .nav-pills {
   border-bottom: 1px solid #eee;
 }
-.features .feature-tabs .nav-link{
+.features .feature-tabs .nav-link {
   background: none;
   text-transform: uppercase;
   font-size: 15px;
@@ -316,17 +381,17 @@ section{
   margin-bottom: -2px;
   border-radius: 0;
 }
-.features .feature-tabs .nav-link.active{
+.features .feature-tabs .nav-link.active {
   color: #4154f1;
   border-bottom: 3px solid #4154f1;
 }
-.features .feature-tabs .tab-content h4{
+.features .feature-tabs .tab-content h4 {
   font-size: 18px;
   margin: 0;
   font-weight: 700;
   color: #012970;
 }
-.features .feature-tabs .tab-content i{
+.features .feature-tabs .tab-content i {
   font-size: 24px;
   line-height: 0;
   margin-right: 8px;
@@ -336,22 +401,22 @@ section{
 /*-----------------------------------
   # Clients section
 -------------------------------------*/
-.clients{
+.clients {
   padding: 15px;
   text-align: center;
 }
-.clients img{
+.clients img {
   max-width: 45%;
   transition: all 0.4s ease-in-out;
   display: inline-block;
   padding: 15px;
   filter: grayscale(100);
 }
-.clients img:hover{
+.clients img:hover {
   filter: none;
   transition: scale(1.15);
 }
-.section-bg{
+.section-bg {
   background-color: #f8f9fa;
 }
 @media (max-width: 768px) {
@@ -363,7 +428,7 @@ section{
 /*----------------------------------------------
   # Visi & Misi
 ------------------------------------------------*/
-.visi .content h2{
+.visi .content h2 {
   font-weight: 700;
   font-size: 48px;
   line-height: 60px;
@@ -371,36 +436,36 @@ section{
   text-transform: uppercase;
   color: #012970;
 }
-.visi .content h3{
+.visi .content h3 {
   font-weight: 500;
   line-height: 32px;
   font-size: 24px;
   font-family: "Montserrat", sans-serif;
   color: #012970;
 }
-.visi .content ul{
+.visi .content ul {
   list-style: none;
   padding: 0;
 }
-.visi .content ul li{
+.visi .content ul li {
   padding: 10px 0 0 28px;
   position: relative;
 }
-.visi .content ul i{
+.visi .content ul i {
   left: 0;
   top: 7px;
   position: absolute;
   font-size: 20px;
   color: #4154f1;
 }
-.visi .content p:last-child{
-  margin-bottom: 0  ;
+.visi .content p:last-child {
+  margin-bottom: 0;
 }
 
 /*----------------------------------------------------
   # Galeri section
 ------------------------------------------------------*/
-.galeri #galeri-flters{
+.galeri #galeri-flters {
   padding: 0;
   margin: 0 auto 25px auto;
   list-style: none;
@@ -409,7 +474,7 @@ section{
   border-radius: 50px;
   padding: 2px 15px;
 }
-.galeri #galeri-flters li{
+.galeri #galeri-flters li {
   cursor: pointer;
   display: inline-block;
   padding: 8px 20px 10px 20px;
@@ -423,21 +488,21 @@ section{
   border: 1px solid #fff;
 }
 .galeri #galeri-flters li:hover,
-.galeri #galeri-flters li.filter-active{
+.galeri #galeri-flters li.filter-active {
   color: #4154f1;
   border-color: #4154f1;
 }
-.galeri #galeri-flters li:last-child{
+.galeri #galeri-flters li:last-child {
   margin-right: 0;
 }
-.galeri .galeri-wrap{
+.galeri .galeri-wrap {
   transition: 0.3s;
   position: relative;
   overflow: hidden;
   z-index: 1;
   background: rgba(255, 255, 255, 0.75);
 }
-.galeri .galeri-wrap::before{
+.galeri .galeri-wrap::before {
   content: "";
   background: rgba(255, 255, 255, 0.75);
   position: absolute;
@@ -449,10 +514,10 @@ section{
   z-index: 2;
   opacity: 0;
 }
-.galeri .galeri-wrap img{
+.galeri .galeri-wrap img {
   transition: 1s;
 }
-.galeri .galeri-wrap .portfolio-info{
+.galeri .galeri-wrap .portfolio-info {
   opacity: 0;
   position: absolute;
   top: 0;
@@ -467,7 +532,7 @@ section{
   justify-content: center;
   align-items: center;
 }
-.galeri .galeri-wrap .portfolio-info::before{
+.galeri .galeri-wrap .portfolio-info::before {
   display: block;
   content: "";
   width: 48px;
@@ -480,7 +545,7 @@ section{
   transition: all 0.5s ease 0s;
   z-index: 9994;
 }
-.galeri .galeri-wrap .portfolio-info::after{
+.galeri .galeri-wrap .portfolio-info::after {
   display: block;
   content: "";
   width: 48px;
@@ -493,12 +558,12 @@ section{
   transition: all 0.5s ease 0s;
   z-index: 9994;
 }
-.galeri .galeri-wrap .portfolio-info h4{
+.galeri .galeri-wrap .portfolio-info h4 {
   font-size: 20px;
   color: #012970;
   font-weight: 700;
 }
-.galeri .galeri-wrap .portfolio-info p{
+.galeri .galeri-wrap .portfolio-info p {
   color: #012970;
   font-weight: 600;
   font-size: 14px;
@@ -506,11 +571,11 @@ section{
   padding: 0;
   margin: 0;
 }
-.galeri .galeri-wrap .portfolio-links{
+.galeri .galeri-wrap .portfolio-links {
   text-align: center;
   z-index: 4;
 }
-.galeri .galeri-wrap .portfolio-links a{
+.galeri .galeri-wrap .portfolio-links a {
   color: #fff;
   background: #4154f1;
   margin: 10px 2px;
@@ -522,31 +587,31 @@ section{
   border-radius: 50%;
   transition: 0.3s;
 }
-.galeri .galeri-wrap .portfolio-links a i{
+.galeri .galeri-wrap .portfolio-links a i {
   font-size: 24px;
   line-height: 0;
 }
-.galeri .galeri-wrap .portfolio-links a:hover{
+.galeri .galeri-wrap .portfolio-links a:hover {
   background: #5969f3;
 }
-.galeri .galeri-wrap:hover img{
+.galeri .galeri-wrap:hover img {
   transform: scale(1.1);
 }
-.galer .galeri-wrap::hover::before{
+.galer .galeri-wrap::hover::before {
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   opacity: 1;
 }
-.galeri .galeri-wrap:hover .portfolio-info{
+.galeri .galeri-wrap:hover .portfolio-info {
   opacity: 1;
 }
-.galeri .galeri-wrap:hover .portfolio-info::before{
+.galeri .galeri-wrap:hover .portfolio-info::before {
   top: 15px;
   left: 15px;
 }
-.galeri .galeri-wrap:hover .portfolio-info::after{
+.galeri .galeri-wrap:hover .portfolio-info::after {
   bottom: 15px;
   right: 15px;
 }
@@ -554,11 +619,11 @@ section{
 /*-----------------------------------------------
   # Guru section
 -------------------------------------------------*/
-.team{
+.team {
   background: #fff;
   padding: 60px 0;
 }
-.team .member{
+.team .member {
   overflow: hidden;
   text-align: center;
   border-radius: 5px;
@@ -566,11 +631,11 @@ section{
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
   transition: 0.3s;
 }
-.team .member .member-img{
+.team .member .member-img {
   position: relative;
   overflow: hidden;
 }
-.team .member .member-img:after{
+.team .member .member-img:after {
   position: absolute;
   content: "";
   left: 0;
@@ -581,7 +646,7 @@ section{
   background-size: contain;
   z-index: 1;
 }
-.team .member .social{
+.team .member .social {
   position: absolute;
   right: -100%;
   top: 30px;
@@ -591,7 +656,7 @@ section{
   background: rgba(255, 255, 255, 0.3);
   z-index: 2;
 }
-.team .member .social a{
+.team .member .social a {
   transition: color 0.3s;
   color: rgba(1, 41, 112, 0.5);
   margin: 15px 12px;
@@ -599,39 +664,39 @@ section{
   line-height: 0;
   text-align: center;
 }
-.team .member .social a:hover{
+.team .member .social a:hover {
   color: rgba(1, 41, 112, 0.8);
 }
-.team .member .social i{
+.team .member .social i {
   font-size: 18px;
 }
-.team .member .member-info{
+.team .member .member-info {
   padding: 10px 15px 20px 15px;
 }
-.team .member .member-info h4{
+.team .member .member-info h4 {
   font-weight: 700;
   margin-bottom: 5px;
   font-size: 20px;
   color: #012970;
 }
-.team .member .member-info span{
+.team .member .member-info span {
   display: block;
   font-size: 14px;
   font-weight: 400;
   color: #aaaaaa;
 }
-.team .member .member-info p{
+.team .member .member-info p {
   font-style: italic;
   font-size: 14px;
   padding-top: 15px;
   line-height: 26px;
   color: #5e5e5e;
 }
-.team .member:hover{
+.team .member:hover {
   transform: scale(1.08);
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
 }
-.team .member:hover .social{
+.team .member:hover .social {
   right: 8px;
   opacity: 1;
 }
@@ -639,7 +704,7 @@ section{
 /*-----------------------------------------------
   # Contact section
 -------------------------------------------------*/
-.contact .info{
+.contact .info {
   padding: 30px;
   background: #fff;
   width: 100%;
@@ -657,26 +722,26 @@ section{
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
 }
-.contact .info h4{
+.contact .info h4 {
   padding: 0 0 0 60px;
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
   color: #37517e;
 }
-.contact .info p{
+.contact .info p {
   padding: 0 0 10px 60px;
   margin-bottom: 20px;
   font-size: 14px;
   color: #6182ba;
 }
-.contact .info .email p{
+.contact .info .email p {
   padding-top: 5px;
 }
-.contact .info .social-links{
+.contact .info .social-links {
   padding-left: 60px;
 }
-.contact .info .social-links a{
+.contact .info .social-links a {
   font-size: 18px;
   display: inline-block;
   background: #333;
@@ -690,32 +755,32 @@ section{
   transition: 0.3s;
   margin-right: 10px;
 }
-.contact .info .social-links a:hover{
+.contact .info .social-links a:hover {
   background: #47b2e4;
   color: #fff;
 }
 .contact .info .email:hover i,
 .contact .info .address:hover i,
-.contant .info .phone:hover i{
+.contant .info .phone:hover i {
   background: #47b2e4;
   color: #fff;
 }
-.contact .php-email-form{
+.contact .php-email-form {
   width: 100%;
   padding: 30px;
   background: #fff;
 }
-.contact .php-email-form .form-group{
+.contact .php-email-form .form-group {
   padding-bottom: 8px;
 }
-.contact .php-email-form .validate{
+.contact .php-email-form .validate {
   display: none;
   color: red;
   margin: 0 0 15px 0;
   font-weight: 400;
   font-size: 13px;
 }
-.contact .php-email-form .error-message{
+.contact .php-email-form .error-message {
   display: none;
   color: #fff;
   background: #ed3c0d;
@@ -723,7 +788,7 @@ section{
   padding: 15px;
   font-weight: 600;
 }
-.contact .php-email-form .error-message br+br {
+.contact .php-email-form .error-message br + br {
   margin-top: 25px;
 }
 .contact .php-email-form .sent-message {
@@ -774,7 +839,7 @@ section{
 .contact .php-email-form textarea {
   padding: 10px 12px;
 }
-.contact .php-email-form button[type=submit] {
+.contact .php-email-form button[type="submit"] {
   background: #47b2e4;
   border: 0;
   padding: 12px 34px;
@@ -782,7 +847,7 @@ section{
   transition: 0.4s;
   border-radius: 50px;
 }
-.contact .php-email-form button[type=submit]:hover {
+.contact .php-email-form button[type="submit"]:hover {
   background: #209dd8;
 }
 @keyframes animate-loading {
@@ -794,7 +859,6 @@ section{
     transform: rotate(360deg);
   }
 }
-
 
 /*--------------------------------------------------------------
 # Footer
@@ -829,13 +893,13 @@ section{
   border: 1px solid #e1ecff;
 }
 
-.footer .footer-newsletter form input[type=email] {
+.footer .footer-newsletter form input[type="email"] {
   border: 0;
   padding: 8px;
   width: calc(100% - 140px);
 }
 
-.footer .footer-newsletter form input[type=submit] {
+.footer .footer-newsletter form input[type="submit"] {
   position: absolute;
   top: 0;
   right: 0;
@@ -851,7 +915,7 @@ section{
   border-radius: 4px;
 }
 
-.footer .footer-newsletter form input[type=submit]:hover {
+.footer .footer-newsletter form input[type="submit"]:hover {
   background: #5969f3;
 }
 
