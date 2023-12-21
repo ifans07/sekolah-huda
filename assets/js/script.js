@@ -13,21 +13,21 @@ toggle.addEventListener("click", function () {
     toggle.style.transform = "rotate(180deg)";
     toggle.style.transition = "transform 0.5s ease";
   } else {
-    iconToggle.classList.add("bi-list");
-    iconToggle.classList.remove("bi-x");
-    // iconToggle.classList.add("bi-text-indent-left");
-    // iconToggle.classList.remove("bi-text-indent-right");
     toggle.style.transform = "rotate(0deg)";
     toggle.style.transition = "transform 0.5s ease";
+    iconToggle.classList.remove("bi-x");
+    iconToggle.classList.add("bi-list");
+    // iconToggle.classList.add("bi-text-indent-left");
+    // iconToggle.classList.remove("bi-text-indent-right");
   }
 });
 
 document.addEventListener("click", function (e) {
   if (!toggle.contains(e.target) && !navbar.contains(e.target)) {
     navbar.classList.remove("active");
-    iconToggle.classList.add("bi-text-indent-left");
-    iconToggle.classList.remove("bi-text-indent-right");
     toggle.style.transform = "rotate(0deg)";
     toggle.style.transition = "transform 0.5s ease";
+    iconToggle.classList.remove("bi-x");
+    iconToggle.classList.add("bi-list");
   }
 });
